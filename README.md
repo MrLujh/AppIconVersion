@@ -2,50 +2,64 @@
 
 我们可以通过将重要信息，添加到App图标上，来提高测试环境定位问题的效率，这里简称：iOS图标版本化。
 
+
 iOS图标版本化
 
-一、如何获取需要覆盖图标的信息
+##一、如何获取需要覆盖图标的信息
 
-App版本号
-构建版本号
-分支名
-提交哈希值
-在App的plist文件中，可以通过PlistBuddy工具，直接提取相关信息。(根据Xcode中plist对应的key) Git命令行工具提供了rev-parse命令，Git探测工具，获取Git信息。
+* App版本号
+* 构建版本号
+* 分支名
+* 提交哈希值
+
+> 在App的plist文件中，可以通过PlistBuddy工具，直接提取相关信息。(根据Xcode中plist对应的key)
+> Git命令行工具提供了rev-parse命令，Git探测工具，获取Git信息。
+
 1.获取App版本号：
 
-version=/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}"
+> version=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}"`
+
 2.获取构建版本号：
 
-build_num=/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}"
+> build_num=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}"`
+
 3.获取Git分支名：
 
-branch=git rev-parse --abbrev-ref HEAD
+> branch=`git rev-parse --abbrev-ref HEAD`
+
 4.获取Git提交哈希值：
 
-commit=git rev-parse --short HEAD
-二、如何将关键信息覆盖到App图标？
+> commit=`git rev-parse --short HEAD`
+
+##二、如何将关键信息覆盖到App图标？
 
 ImageMagic是我用来从命令行处理图像的工具，它提供了大量的功能。
 
-首先确保安装imageMagick和ghostScript*，可以使用brew来简化安装过程：
+**首先确保安装imageMagick和ghostScript*，可以使用brew来简化安装过程：**
 
 1.安装imageMagick
 
-brew install imagemagick
+> brew install imagemagick
+
 2.安装ghostScript
 
-brew install ghostscript
+> brew install ghostscript
+
 3.我们可以使用convert函数，通过指定参数，imageMagick会把文本覆盖在图片上面，还可以设置底部对齐和默认高度。
 
-imageMagick (TM) 是一个免费的创建、编辑、合成图片的软件。 它可以读取、转换、写入多种格式的图片。 图片切割、颜色替换、各种效果的应用，图片的旋转、组合，文本，直线，多边形，椭圆，曲线，附加到图片伸展旋转。
-三、如何快速集成
+> imageMagick (TM) 是一个免费的创建、编辑、合成图片的软件。
+> 它可以读取、转换、写入多种格式的图片。
+> 图片切割、颜色替换、各种效果的应用，图片的旋转、组合，文本，直线，多边形，椭圆，曲线，附加到图片伸展旋转。
 
-1. 拷贝下面的代码，保存为 icon_version.sh 脚本文件。
+##三、如何快速集成
 
-注意:
+**1. 拷贝下面的代码，保存为 icon_version.sh 脚本文件。**
+
+**注意:**
 
 icons_path和icons_dest_path路径，修改为自己工程，实际的图标资源路径或名称。
 
+```objc
 #!/bin/sh
 convertPath=`which convert`
 echo ${convertPath}
@@ -177,33 +191,36 @@ while IFS= read -r -d '' file; do
 echo "$file"
 processIcon "${file}" "${tmp_path}" "${icons_dest_path}"
 done
-2. 将 icon_version.sh 放到 Xcode 工程目录。
+```
+**2. 将 icon_version.sh 放到 Xcode 工程目录。**
 
-3. 配置Xcode中的 Build Phases 选项卡，选择 New Run Script Phase 添加 Run Script。
+**3. 配置Xcode中的 Build Phases 选项卡，选择 New Run Script Phase 添加 Run Script。**
 
-4. shell 内容填写”${SRCROOT}/DaRenShop/Other/Release/icon_version.sh”
+**4. shell 内容填写"${SRCROOT}/DaRenShop/Other/Release/icon_version.sh"**
 
-注意:
+**注意:**
 
 ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 
-5. 配置Xcode中的 General 选项卡，选择 App Icons and Launch Images项，将App Icons Source 修改为 AppIcon-Internal。
+**5. 配置Xcode中的 General 选项卡，选择 App Icons and Launch Images项，将App Icons Source 修改为 AppIcon-Internal。**
 
-注意:
+**注意:**
 
 按照实际生成AppIcon资源文件名修改
 
-6. 运行 Xcode 工程，自动生成一套，名为AppIcon-Internal，含有覆盖信息的App图标资源文件。
+**6. 运行 Xcode 工程，自动生成一套，名为AppIcon-Internal，含有覆盖信息的App图标资源文件。**
 
-四、总结
+##四、总结
 
 关于Xcode9构建iOS11系统的App图标时，不显示的问题：
 
-使用Xcode9构建iOS11系统的App图标，默认读取资源文件，而非App包的Icon图标，导致不显示，使用本文中，通过生成独立的AppIcon-Internal资源文件:
-不区分Release和Debug构建，都会生成AppIcon-Internal资源图标文件。
-不区分Xcode版本，需要手动设置正式版、测试版的App Icons Source。
-另一种，通过AppIcon资源文件在App包中生成图标：
+> 使用Xcode9构建iOS11系统的App图标，默认读取资源文件，而非App包的Icon图标，导致不显示，使用本文中，通过生成独立的AppIcon-Internal资源文件:
 
-区分Release和Debug构建，不会生成AppIcon-Internal资源图标文件，只在Debug下自动替换App原图标。
-需要使用Xcode8构建，不需要手动设置正式版、测试版的App Icons Source。
-Xcode9构建iOS11系统图标时，会不显示。
+- 不区分Release和Debug构建，都会生成AppIcon-Internal资源图标文件。
+- 不区分Xcode版本，需要手动设置正式版、测试版的App Icons Source。
+ 
+**另一种，通过AppIcon资源文件在App包中生成图标：**
+
+- 区分Release和Debug构建，不会生成AppIcon-Internal资源图标文件，只在Debug下自动替换App原图标。
+- 需要使用Xcode8构建，不需要手动设置正式版、测试版的App Icons Source。
+- Xcode9构建iOS11系统图标时，会不显示。
