@@ -210,7 +210,7 @@ ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 
 **5. 配置Xcode中的 General 选项卡，选择 App Icons and Launch Images项，将App Icons Source 修改为 AppIcon-Internal。**
 
-![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_05.png)
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_04.png)
 
 **注意:**
 
@@ -218,7 +218,7 @@ ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 
 **6. 运行 Xcode 工程，自动生成一套，名为AppIcon-Internal，含有覆盖信息的App图标资源文件。**
 
-![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_06.png)
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_05.png)
 
 ## 四、总结
 
