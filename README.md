@@ -4,7 +4,7 @@
 
 我们可以通过将重要信息，添加到App图标上，来提高测试环境定位问题的效率，这里简称：iOS图标版本化。
 
-
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_01.jpg)
 iOS图标版本化
 
 ## 一、如何获取需要覆盖图标的信息
@@ -196,7 +196,11 @@ done
 ```
 **2. 将 icon_version.sh 放到 Xcode 工程目录。**
 
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_02.png)
+
 **3. 配置Xcode中的 Build Phases 选项卡，选择 New Run Script Phase 添加 Run Script。**
+
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_03.png)
 
 **4. shell 内容填写"${SRCROOT}/DaRenShop/Other/Release/icon_version.sh"**
 
@@ -206,11 +210,15 @@ ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 
 **5. 配置Xcode中的 General 选项卡，选择 App Icons and Launch Images项，将App Icons Source 修改为 AppIcon-Internal。**
 
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_05.png)
+
 **注意:**
 
 按照实际生成AppIcon资源文件名修改
 
 **6. 运行 Xcode 工程，自动生成一套，名为AppIcon-Internal，含有覆盖信息的App图标资源文件。**
+
+![(icon)](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/resource_06.png)
 
 ## 四、总结
 
@@ -226,3 +234,5 @@ ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 - 区分Release和Debug构建，不会生成AppIcon-Internal资源图标文件，只在Debug下自动替换App原图标。
 - 需要使用Xcode8构建，不需要手动设置正式版、测试版的App Icons Source。
 - Xcode9构建iOS11系统图标时，会不显示。
+
+* ![Mou icon](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/example.gif)
