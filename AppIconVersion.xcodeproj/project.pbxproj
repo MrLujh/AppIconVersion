@@ -13,6 +13,12 @@
 		2E45266420687F0500A6C71D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45266320687F0500A6C71D /* Assets.xcassets */; };
 		2E45266720687F0500A6C71D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E45266520687F0500A6C71D /* LaunchScreen.storyboard */; };
 		2E45266A20687F0500A6C71D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E45266920687F0500A6C71D /* main.m */; };
+		2E45268F2068865500A6C71D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E45265E20687F0500A6C71D /* ViewController.m */; };
+		2E4526902068865500A6C71D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E45266920687F0500A6C71D /* main.m */; };
+		2E4526912068865500A6C71D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E45265B20687F0500A6C71D /* AppDelegate.m */; };
+		2E4526942068865500A6C71D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E45266520687F0500A6C71D /* LaunchScreen.storyboard */; };
+		2E4526952068865500A6C71D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45266320687F0500A6C71D /* Assets.xcassets */; };
+		2E4526962068865500A6C71D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E45266020687F0500A6C71D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +32,19 @@
 		2E45266620687F0500A6C71D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E45266820687F0500A6C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E45266920687F0500A6C71D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E45269B2068865500A6C71D /* AppIconVersion copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppIconVersion copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E45269C2068865600A6C71D /* AppIconVersion copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AppIconVersion copy-Info.plist"; path = "/Users/lujh/Desktop/AppIconVersion/AppIconVersion copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2E45265420687F0500A6C71D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E4526922068865500A6C71D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +59,7 @@
 			children = (
 				2E45265920687F0500A6C71D /* AppIconVersion */,
 				2E45265820687F0500A6C71D /* Products */,
+				2E45269C2068865600A6C71D /* AppIconVersion copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				2E45265720687F0500A6C71D /* AppIconVersion.app */,
+				2E45269B2068865500A6C71D /* AppIconVersion copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +98,7 @@
 				2E45265320687F0500A6C71D /* Sources */,
 				2E45265420687F0500A6C71D /* Frameworks */,
 				2E45265520687F0500A6C71D /* Resources */,
+				2E45268C2068859D00A6C71D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -89,6 +107,24 @@
 			name = AppIconVersion;
 			productName = AppIconVersion;
 			productReference = 2E45265720687F0500A6C71D /* AppIconVersion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E45268D2068865500A6C71D /* AppIconVersion copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4526982068865500A6C71D /* Build configuration list for PBXNativeTarget "AppIconVersion copy" */;
+			buildPhases = (
+				2E45268E2068865500A6C71D /* Sources */,
+				2E4526922068865500A6C71D /* Frameworks */,
+				2E4526932068865500A6C71D /* Resources */,
+				2E4526972068865500A6C71D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AppIconVersion copy";
+			productName = AppIconVersion;
+			productReference = 2E45269B2068865500A6C71D /* AppIconVersion copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,6 +138,9 @@
 				TargetAttributes = {
 					2E45265620687F0500A6C71D = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					2E45268D2068865500A6C71D = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -120,6 +159,7 @@
 			projectRoot = "";
 			targets = (
 				2E45265620687F0500A6C71D /* AppIconVersion */,
+				2E45268D2068865500A6C71D /* AppIconVersion copy */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +175,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E4526932068865500A6C71D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E4526942068865500A6C71D /* LaunchScreen.storyboard in Resources */,
+				2E4526952068865500A6C71D /* Assets.xcassets in Resources */,
+				2E4526962068865500A6C71D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E45268C2068859D00A6C71D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/icon_version.sh\"";
+		};
+		2E4526972068865500A6C71D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/icon_version.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E45265320687F0500A6C71D /* Sources */ = {
@@ -145,6 +224,16 @@
 				2E45265F20687F0500A6C71D /* ViewController.m in Sources */,
 				2E45266A20687F0500A6C71D /* main.m in Sources */,
 				2E45265C20687F0500A6C71D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E45268E2068865500A6C71D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E45268F2068865500A6C71D /* ViewController.m in Sources */,
+				2E4526902068865500A6C71D /* main.m in Sources */,
+				2E4526912068865500A6C71D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +391,34 @@
 			};
 			name = Release;
 		};
+		2E4526992068865500A6C71D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Internal";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M422A22FH;
+				INFOPLIST_FILE = "AppIconVersion copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lujh.AppIconVersion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E45269A2068865500A6C71D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Internal";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M422A22FH;
+				INFOPLIST_FILE = "AppIconVersion copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lujh.AppIconVersion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +436,15 @@
 			buildConfigurations = (
 				2E45268420687F0600A6C71D /* Debug */,
 				2E45268520687F0600A6C71D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E4526982068865500A6C71D /* Build configuration list for PBXNativeTarget "AppIconVersion copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4526992068865500A6C71D /* Debug */,
+				2E45269A2068865500A6C71D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
