@@ -236,3 +236,5 @@ ${SRCROOT}/自己工程实际的文件路径/icon_version.sh
 - Xcode9构建iOS11系统图标时，会不显示。
 
 * ![Mou icon](https://github.com/MrLujh/AppIconVersion/blob/master/Resource/example.gif)
+
+![Mou icon](https://github.com/MrLujh/Fastlane--Packaging/blob/master/111.gif)
